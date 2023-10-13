@@ -1,7 +1,14 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\mvc",
+    "\\mvc\\Controllers",
+    "\\mvc\\Models",
+    "\\mvc\\Views",
+    "\\mvc\\Views\\Calculator",
+    "\\mvc\\Views\\Home",
+    "\\mvc\\Views\\Shared"
   ],
-  "SelectedNode": "\\C:\\Users\\FernandoGarcia\\Desktop\\calculator",
+  "SelectedNode": "\\mvc\\Controllers\\Calculator.cs",
   "PreviewInSolutionExplorer": false
 }
