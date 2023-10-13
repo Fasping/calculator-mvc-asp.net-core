@@ -4,7 +4,6 @@ using mvc.Models;
 
 namespace mvc.Controllers { 
 
-
 public class CalculatorController : Controller
 {
     private readonly ILogger<HomeController> _logger;
