@@ -1,2 +1,2 @@
-# calculator-mvc-asp.net-core
+# Calculator MVC-Asp.Net-Core
 💫
