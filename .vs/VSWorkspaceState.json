@@ -2,13 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\mvc",
-    "\\mvc\\Controllers",
+    "\\mvc\\bin",
     "\\mvc\\Models",
     "\\mvc\\Views",
     "\\mvc\\Views\\Calculator",
     "\\mvc\\Views\\Home",
     "\\mvc\\Views\\Shared"
   ],
-  "SelectedNode": "\\mvc\\Controllers\\Calculator.cs",
   "PreviewInSolutionExplorer": false
 }

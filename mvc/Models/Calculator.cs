@@ -1,16 +1,20 @@
-namespace mvc.Models;
+using System;
 
-public class CalculatorViewModel
+namespace mvc.Models
 {
-    public int Operator1 { get; set; }
+
+    public class Calculator
+    {
+        public int Operator1 { get; set; }
 
 
-    public int Operator2 { get; set; }
+        public int Operator2 { get; set; }
 
 
-    public string Action { get; set; }
+        public string Action { get; set; }
 
 
-    public int Answer { get; set; }
+        public int Answer { get; set; }
 
+    }
 }
