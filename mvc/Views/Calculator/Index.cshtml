@@ -6,4 +6,30 @@
 
 <div class="text-center">
     <h1 class="display-4">Calculator</h1>
+
+    <form asp-controller="Calculator"  asp-action="Calculation">
+
+        <label> Calculator </label>
+        <br />
+        <label>Operator1</label>
+        <input asp-for="Operator1">
+        <br />
+        <label>Operator2</label>
+        <input asp-for="Operator2">
+        <br />
+        <label>Deside the action</label>
+        <select asp-for="Action">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <br />
+        <input type="submit" value="Calculation">
+
+    </form>
+
+    <td>@Html.DisplayNameFor(model => model.Answer)  </td>
+    <td>@Html.DisplayTextFor(model => model.Answer)</td>
+
 </div>
