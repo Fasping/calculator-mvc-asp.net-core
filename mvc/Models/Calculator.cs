@@ -1,6 +1,6 @@
 using System;
 
-namespace mvc.Models
+namespace CalculatorWeb.Models
 {
 
     public class Calculator
