@@ -1,4 +1,4 @@
-@model CalculatorWeb.Models.Calculator
+@model mvc.Models.Calculator
 
 @{
     ViewData["Title"] = "Home Page";
@@ -7,29 +7,41 @@
 <div class="text-center">
     <h1 class="display-4">Calculator</h1>
 
-    <form asp-controller="Calculator"  asp-action="Calculation">
+    <form asp-controller="Calculator" asp-action="Calculate" method="post">
 
         <label> Calculator </label>
         <br />
         <label>Operator1</label>
-        <input asp-for="Operator1">
+        <input asp-for="Operator1" type="number" required>
         <br />
         <label>Operator2</label>
-        <input asp-for="Operator2">
+        <input asp-for="Operator2" type="number" required>
         <br />
         <label>Decide the action</label>
-        <select asp-for="Action">
+        <select asp-for="Action" required>
             <option value="+">+</option>
             <option value="-">-</option>
             <option value="*">*</option>
             <option value="/">/</option>
         </select>
         <br />
-        <input type="submit" value="Calculation">
+        <button type="submit">
+            Kinky
+        </button>
 
     </form>
 
-    <td>@Html.DisplayNameFor(model => model.Answer)  </td>
-    <td>@Html.DisplayTextFor(model => model.Answer)</td>
+    <!-- Validation Errors -->
+    <div class="text-danger">
+        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+        {
+            <div>@error.ErrorMessage</div>
+        }
+    </div>
+
+    <div>
+        <label>@Html.DisplayNameFor(model => model.Answer)</label>
+        <span>@Html.DisplayFor(model => model.Answer)</span>
+    </div>
 
 </div>
