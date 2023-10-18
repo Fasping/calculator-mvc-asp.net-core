@@ -1,20 +1,16 @@
-using System;
+using System.ComponentModel.DataAnnotations;
 
-namespace CalculatorWeb.Models
+namespace mvc.Models
 {
-
     public class Calculator
     {
-        public int Operator1 { get; set; }
+        public double Operator1 { get; set; }
 
+        public double Operator2 { get; set; }
 
-        public int Operator2 { get; set; }
+        public string? Action { get; set; }
 
-
-        public string Action { get; set; }
-
-
-        public int Answer { get; set; }
-
+        [Display(Name = "The answer is :")]
+        public string Answer { get; set; } = string.Empty;
     }
 }

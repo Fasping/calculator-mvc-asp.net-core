@@ -1,37 +1,43 @@
-using System.Diagnostics;
-using CalculatorWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 using mvc.Models;
+using mvc.Helper;
+using System;
 
 namespace mvc.Controllers
 {
-
     public class CalculatorController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public CalculatorController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
-
         public IActionResult Index()
         {
             return View();
         }
 
         [HttpPost]
-
-        public IActionResult Calculate(Calculator objCalculator)
+        public IActionResult Calculate(Calculator calculator)
         {
-            if ("+".Equals(objCalculator.Action))
+            try
             {
-                objCalculator.Answer = objCalculator.Operator1 + objCalculator.Operator2;
+                calculator.Answer = CalculatorHelper.Calculate(calculator.Operator1, calculator.Operator2,
+                    GetCalculatorOperationType(calculator.Action)).ToString();
+            }
+            catch (Exception)
+            {
+                calculator.Answer = "Error occurred during calculation.";
             }
 
-            return View("index",objCalculator);
+            return View("Index", calculator);
         }
 
-
+        private CalculatorOperation GetCalculatorOperationType(string action)
+        {
+            return action switch
+            {
+                "+" => CalculatorOperation.Add,
+                "-" => CalculatorOperation.Subtract,
+                "*" => CalculatorOperation.Multiply,
+                "/" => CalculatorOperation.Divide,
+                _ => throw new ArgumentException("Invalid operator."),
+            };
+        }
     }
 }
