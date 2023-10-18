@@ -1,47 +1,27 @@
 @model mvc.Models.Calculator
 
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Calculator";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Calculator</h1>
+<div class="calculator-container">
+    <h1 class="calculator-heading">Calculator</h1>
 
-    <form asp-controller="Calculator" asp-action="Calculate" method="post">
-
-        <label> Calculator </label>
-        <br />
-        <label>Operator1</label>
-        <input asp-for="Operator1" type="number" required>
-        <br />
-        <label>Operator2</label>
-        <input asp-for="Operator2" type="number" required>
-        <br />
-        <label>Decide the action</label>
-        <select asp-for="Action" required>
-            <option value="+">+</option>
-            <option value="-">-</option>
-            <option value="*">*</option>
-            <option value="/">/</option>
-        </select>
-        <br />
-        <button type="submit">
-            Kinky
-        </button>
-
-    </form>
-
-    <!-- Validation Errors -->
-    <div class="text-danger">
-        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
-        {
-            <div>@error.ErrorMessage</div>
-        }
+    <div class="calculator-inputs">
+        <input class="calculator-input" asp-for="Operator1" type="number" required>
+        <input class="calculator-input" asp-for="Operator2" type="number" required>
     </div>
 
-    <div>
+    <div class="calculator-actions">
+        <button class="calculator-button" value="+" onclick="setAction('+')">+</button>
+        <button class="calculator-button" value="-" onclick="setAction('-')">-</button>
+        <button class="calculator-button" value="*" onclick="setAction('*')">*</button>
+        <button class="calculator-button" value="/" onclick="setAction('/')">/</button>
+        <button class="calculator-button" onclick="calculate()">Calculate</button>
+    </div>
+
+    <div class="calculator-result">
         <label>@Html.DisplayNameFor(model => model.Answer)</label>
-        <span>@Html.DisplayFor(model => model.Answer)</span>
+        <span class="calculator-output">@Html.DisplayFor(model => model.Answer)</span>
     </div>
-
-</div>
+</div> 
