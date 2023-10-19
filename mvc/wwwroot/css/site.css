@@ -1,22 +1,47 @@
-html {
-  font-size: 14px;
+.calculator-container {
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+    gap: 10px;
+    max-width: 300px;
+    margin: 0 auto;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+.calculator-heading {
+    text-align: center;
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+.calculator-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
+.calculator-input {
+    width: 100%;
+    padding: 8px;
 }
 
-body {
-  margin-bottom: 60px;
+.calculator-actions {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.calculator-button {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+    .calculator-button:hover {
+        background-color: #ddd;
+    }
+
+.calculator-result {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2em;
 }

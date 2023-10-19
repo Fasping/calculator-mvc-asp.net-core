@@ -1,4 +1,7 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿function setAction(action) {
+    document.getElementById("Action").value = action;
+}
 
-// Write your JavaScript code.
+function calculate() {
+    document.forms[0].submit();
+}
