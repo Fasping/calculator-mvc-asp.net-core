@@ -17,8 +17,17 @@ namespace mvc.Controllers
         {
             try
             {
-                calculator.Answer = CalculatorHelper.Calculate(calculator.Operator1, calculator.Operator2,
-                    GetCalculatorOperationType(calculator.Action)).ToString();
+                var operationType = GetCalculatorOperationType(calculator.Action);
+
+                // manage custom exception here
+                if (operationType.Equals(CalculatorOperation.Divide) && calculator.Operator2 == 0)
+                {
+                    calculator.Answer = "0";
+                    return View("Index", calculator);
+                }
+               
+                calculator.Answer = CalculatorHelper.Calculate(calculator.Operator1, calculator.Operator2, operationType).ToString();
+               
             }
             catch (Exception)
             {
