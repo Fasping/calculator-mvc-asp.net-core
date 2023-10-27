@@ -7,23 +7,24 @@
 <div class="calculator-container">
     <h1 class="calculator-heading">Calculator</h1>
     <form asp-controller="Calculator" asp-action="Calculate" method="post">
-    <div class="calculator-inputs">
-        <input class="calculator-input" asp-for="Operator1" type="number" required>
-        <input class="calculator-input" asp-for="Operator2" type="number" required>
-    </div>
+        <div class="calculator-inputs">
+            <input class="calculator-input" asp-for="Operator1" type="number" required>
+            <input class="calculator-input" asp-for="Operator2" type="number" required>
+        </div>
 
-    <div class="calculator-actions">
+        <div class="calculator-actions">
             <select asp-for="Action">
                 <option value="+">+</option>
                 <option value="-">-</option>
                 <option value="*">*</option>
                 <option value="/">/</option>
             </select>
-        <button class="calculator-button" type="submit">Calculate</button>
-    </div>
+            <button class="calculator-button" type="submit">Calculate</button>
+            <button class="calculator-button" type="submit" name="reset" value="reset">Reset</button>
+        </div>
     </form>
     <div class="calculator-result">
         <label>@Html.DisplayNameFor(model => model.Answer)</label>
         <span class="calculator-output">@Html.DisplayFor(model => model.Answer)</span>
     </div>
-</div> 
+</div>

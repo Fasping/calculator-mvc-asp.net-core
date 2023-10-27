@@ -13,8 +13,15 @@ namespace mvc.Controllers
         }
 
         [HttpPost]
-        public IActionResult Calculate(Calculator calculator)
+        public IActionResult Calculate(Calculator calculator, string reset)
         {
+            if (!string.IsNullOrEmpty(reset) && reset.Equals("reset"))
+            {
+                
+                calculator.Answer = string.Empty;
+                return View("Index", calculator);
+            }
+
             try
             {
                 var operationType = GetCalculatorOperationType(calculator.Action);
